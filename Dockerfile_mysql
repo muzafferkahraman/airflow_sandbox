@@ -1,0 +1,11 @@
+FROM mysql:latest
+
+MAINTAINER mekarge
+
+ENV MYSQL_DATABASE=family \
+    MYSQL_ROOT_PASSWORD=Vnsuser1!
+
+ADD schema.sql /docker-entrypoint-initdb.d
+
+EXPOSE 3306
+

@@ -1,0 +1,8 @@
+FROM centos:7
+MAINTAINER muzo kahraman
+RUN yum -y install python3
+COPY people.csv /tmp
+EXPOSE 80
+CMD ["python3","-m","http.server","80"]
+
+

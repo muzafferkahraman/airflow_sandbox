@@ -1,0 +1,41 @@
+version: "2.0"
+services:
+    
+    mysql:
+        image: mysql:latest
+        restart: always
+        logging:
+          driver: "journald"
+          options:
+              tag: mysql
+              labels: mysql
+        ports:
+          - 3306:3306
+
+    airflow:
+        image: airflow
+        restart: always
+        logging:
+          driver: "journald"
+          options:
+              tag: airflow
+              labels: airflow
+        volumes:
+          - /airflow_sandbox/dags:/opt/airflow/dags:rw,z
+        links:
+          - source:source
+          - mysql:mysql
+        ports:
+          - 8080:8080
+
+    source:
+        image: source
+        restart: always
+        logging:
+          driver: "journald"
+          options:
+              tag: source
+              labels: source
+        ports:
+          - 80:80
+

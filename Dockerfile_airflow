@@ -1,0 +1,4 @@
+FROM apache/airflow:latest-python3.8
+EXPOSE 8080
+CMD ["airflow","standalone"]
+

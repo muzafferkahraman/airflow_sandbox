@@ -1,2 +1,3 @@
 # airflow_poc
-perspnal poc
+
+docker build -t airflow .
