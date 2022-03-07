@@ -28,14 +28,14 @@ services:
         ports:
           - 8080:8080
 
-    source:
-        image: source
+    centos:
+        image: centos
         restart: always
         logging:
           driver: "journald"
           options:
-              tag: source
-              labels: source
+              tag: centos
+              labels: centos
         ports:
           - 80:80
 
