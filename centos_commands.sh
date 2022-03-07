@@ -1,4 +1,4 @@
-python3 /tmp/record_generator.py;
+python3 /scripts/record_generator.py;
 tail -f /dev/null;
 
 
