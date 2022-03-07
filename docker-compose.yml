@@ -30,12 +30,9 @@ services:
 
     centos:
         image: centos
-        restart: always
         logging:
           driver: "journald"
           options:
               tag: centos
               labels: centos
-        ports:
-          - 80:80
 
