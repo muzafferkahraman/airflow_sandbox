@@ -23,7 +23,7 @@ services:
         volumes:
           - /airflow_sandbox/dags:/opt/airflow/dags:rw,z
         links:
-          - source:source
+          - centos:centos
           - mysql:mysql
         ports:
           - 8080:8080
