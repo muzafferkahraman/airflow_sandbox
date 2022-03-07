@@ -23,7 +23,7 @@ def randomrecord():
 	return(record)
 
 
-if __name__ == "_main__":
+if __name__ == "__main__":
 	
 	while True:
 		f=open("/record.txt","w")
