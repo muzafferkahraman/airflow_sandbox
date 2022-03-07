@@ -3,7 +3,7 @@ MAINTAINER muzo kahraman
 RUN echo "proxy=http://135.245.192.7:8000" >> /etc/yum.conf
 RUN yum clean all
 RUN yum update -y
-RUN yum -y install python3i
+RUN yum -y install python3
 RUN mkdir -p /scripts
 COPY record_generator.py /scripts
 COPY centos_commands.sh /scripts
