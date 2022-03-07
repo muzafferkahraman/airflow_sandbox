@@ -2,8 +2,8 @@ FROM mysql:latest
 
 MAINTAINER mekarge
 
-ENV MYSQL_DATABASE=family \
-    MYSQL_ROOT_PASSWORD=Vnsuser1!
+ENV MYSQL_DATABASE=school \
+    MYSQL_ROOT_PASSWORD=Muzo1!
 
 ADD schema.sql /docker-entrypoint-initdb.d
 

@@ -6,8 +6,8 @@ airflow:
 mysql:
 	docker build -t mysql -f Dockerfile_mysql .
 
-source:
-	docker build -t source -f Dockerfile_source .
+centos:
+	docker build -t source -f Dockerfile_centos .
 
 composeup:
 	docker-compose up
