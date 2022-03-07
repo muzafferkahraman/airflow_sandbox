@@ -10,7 +10,7 @@ centos:
 	docker build -t centos -f Dockerfile_centos .
 
 composeup:
-	docker-compose up
+	docker-compose up -d
 
 start_airflow:
 	docker exec -ti airflow_sandbox_airflow_1 airflow db init

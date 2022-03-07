@@ -30,7 +30,7 @@ services:
 
     centos:
         image: centos
-        restart: always
+        tty: true
         logging:
           driver: "journald"
           options:
