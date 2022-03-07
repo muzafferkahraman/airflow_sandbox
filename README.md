@@ -6,10 +6,11 @@ This repo includes the docker container environment to test and experience the A
 2. cd airflow_sandbox
 3. make all
 4. check if all the containers are up and running 
-		> docker ps
+>       docker ps
 5. get the password for the airflow admin
 >      docker exec -ti airflow_sandbox_airflow_1 cat /opt/airflow/standalone_admin_password.txt
 6. Type <ip of the host>:8080 at  the browser's address bar
+	
 	
 	![image info](./images/airflow_login_page.png)
 

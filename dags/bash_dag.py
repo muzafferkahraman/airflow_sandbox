@@ -2,7 +2,7 @@ import datetime
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 with DAG(
-    dag_id='muzokahraman',
+    dag_id='bash_example',
     # schedule_interval=datetime.timedelta(minutes=1),
     schedule_interval='* * * * *',
     start_date=datetime.datetime(2022, 3, 6),
