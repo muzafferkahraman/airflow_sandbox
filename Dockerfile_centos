@@ -5,6 +5,7 @@ RUN yum clean all
 RUN yum update -y
 RUN yum -y install python3
 COPY record_generator.py /tmp
+RUN (crontab -l 2>/dev/null; echo "* * * * * date > muzo") | crontab -
 CMD ["python3","/tmp/record_generator.py"]
 
 
