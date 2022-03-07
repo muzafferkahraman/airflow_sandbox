@@ -14,3 +14,5 @@ composeup:
 
 start_airflow:
 	docker exec -ti airflow_sandbox_airflow_1 airflow db init
+
+

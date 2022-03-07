@@ -4,10 +4,9 @@ RUN echo "proxy=http://135.245.192.7:8000" >> /etc/yum.conf
 RUN yum clean all
 RUN yum update -y
 RUN yum -y install python3
-RUN yum -y install openssh-server openssh-clients
-RUN systemctl start sshd
 RUN mkdir -p /scripts
 COPY record_generator.py /scripts
-COPY centos_commands.sh /scripts
-CMD ["sh","/scripts/centos_commands.sh"]
-
+# COPY centos_commands.sh /scripts
+EXPOSE 5000
+# CMD ["sh","/scripts/centos_commands.sh"]
+CMD ["python3","/scripts/record_generator.py"]

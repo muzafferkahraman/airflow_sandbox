@@ -36,4 +36,6 @@ services:
           options:
               tag: centos
               labels: centos
+        ports:
+          - 5000:5000
 

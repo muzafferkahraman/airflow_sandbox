@@ -1,5 +1,6 @@
-python3 /scripts/record_generator.py;
-tail -f /dev/null;
+cd /scripts
+python3 record_generator.py
+python3 -m http.server 5000
 
 
 

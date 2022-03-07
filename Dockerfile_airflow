@@ -1,4 +1,5 @@
 FROM apache/airflow:latest-python3.8
+RUN pip3 install pymysql --proxy http://135.245.192.7:8000
 EXPOSE 8080
 CMD ["airflow","standalone"]
 
