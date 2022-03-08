@@ -6,7 +6,5 @@ RUN yum update -y
 RUN yum -y install python3
 RUN mkdir -p /scripts
 COPY record_generator.py /scripts
-# COPY centos_commands.sh /scripts
 EXPOSE 5000
-# CMD ["sh","/scripts/centos_commands.sh"]
 CMD ["python3","/scripts/record_generator.py"]
