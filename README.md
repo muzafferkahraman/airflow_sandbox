@@ -30,39 +30,10 @@ This repo includes the docker container environment to try and experience the Ai
 >        use school;
 >        select * from students;
 
-mysql> select * from students;
-+-----------+-----------+------+
-| name      | surname   | age  |
-+-----------+-----------+------+
-| HENRY     | GONZALEZ  |   22 |
-| LUCAS     | MOORE     |   20 |
-| AVA       | SMITH     |   21 |
-| CHARLOTTE | LOPEZ     |   18 |
-| EVELYN    | WILSON    |   20 |
-| JAMES     | HERNANDEZ |   21 |
-| ELIJAH    | GARCIA    |   20 |
-| OLIVIA    | JACKSON   |   22 |
-| OLIVIA    | TAYLOR    |   20 |
-| EVELYN    | WILLIAMS  |   22 |
-| CHARLOTTE | THOMAS    |   18 |
-| ISABELLA  | THOMAS    |   20 |
-| OLIVIA    | ANDERSON  |   22 |
-| LIAM      | GONZALEZ  |   19 |
-| ISABELLA  | HERNANDEZ |   19 |
-| LIAM      | MOORE     |   18 |
-| ALEXANDER | WILSON    |   19 |
-| ELIJAH    | ANDERSON  |   18 |
-| EVELYN    | TAYLOR    |   22 |
-| OLIVER    | RODRIGUEZ |   18 |
-| SOPHIA    | MARTIN    |   18 |
-| WILLIAM   | MARTINEZ  |   22 |
-| BENJAMIN  | JOHNSON   |   21 |
-| MIA       | HERNANDEZ |   18 |
-| ELIJAH    | LOPEZ     |   20 |
-+-----------+-----------+------+
-25 rows in set (0.00 sec)
 
-Notes: The test environment is composed of 3 containers: Centos, Airflow and Mysql
+![image info](./images/mysql_students_table.png)
+
+**Notes**: The test environment is composed of 3 containers: Centos, Airflow and Mysql
 * 	Centos container runs a very simple api server that provides a csv format of a random name,surname and age, that's changed every minute
 * 	Airflow container runs the dag (pipe_demo_dag.py)  that extracts the input by sending http GETs to the centos, transorms it (uppercase) then loads it to the Mysql container
 *   Mysql  container stores the db table whose entries are set by the Airflow container, at the db school and table students
