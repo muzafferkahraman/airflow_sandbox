@@ -1,3 +1,13 @@
+'''
+This DAG is developed to try and experience the airflow
+
+E- extracts the data by sending REST APIs
+T- tarnsforms basically by converting every string to uppercase
+L- loads the final output to MYSQL
+
+Author: Muzo Kahraman  "muzaffer.kahraman@outlook.com"
+'''
+
 import datetime
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
@@ -13,21 +23,22 @@ def change_case(ti):
     mod_res=mod_res.upper()
     ti.xcom_push(key='mod_res', value=mod_res)
 
-def display(ti):
+def send_mysql(ti):
     record=ti.xcom_pull(key='mod_res', task_ids='change_case')
-    connection = pymysql.connect(host='airflow_sandbox_mysql_1',
-                             user='root',
-                             password='Muzo1!',
-                             database='school',
-                             cursorclass=pymysql.cursors.DictCursor)
-
-    with connection:
-      with connection.cursor() as cursor:
-        sql = "INSERT INTO students (`name`, `surname`, `age`) VALUES (%s,%s, %d)"
-        A=record.split(",")
-        # cursor.execute(sql,(A[0],A[1],A[2]))
-        cursor.execute(sql,('muzo','kahraman',49))
+    connection = pymysql.connect(host='airflow_sandbox_mysql_1',user='root',password="Muzo1!",database='school',cursorclass=pymysql.cursors.DictCursor)
+  
+    with connection.cursor() as cursor:
        
+        data=record.split(",")
+        data[2]=int(data[2])
+        data=tuple(data)
+        sql="INSERT INTO `students` (`name`, `surname`,`age`) VALUES " + str(data)
+        
+        cursor.execute(sql)
+        
+        connection.commit()
+        cursor.close()
+        connection.close()
 
 with DAG(
     dag_id='pipe_example',
@@ -37,11 +48,10 @@ with DAG(
     catchup=False,
 ) as dag:
 
-
-
     t1 = PythonOperator(task_id='send_api', python_callable=send_api)
     t2 = PythonOperator(task_id='change_case', python_callable=change_case)
-    t3 = PythonOperator(task_id='display', python_callable=display)
+    t3 = PythonOperator(task_id='send_mysql', python_callable=send_mysql)
+
     t1 >> t2 >> t3
 
 
