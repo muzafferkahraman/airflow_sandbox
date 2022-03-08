@@ -12,15 +12,19 @@ This repo includes the docker container environment to try and experience the Ai
 6. Type <ip of the host>:8080 at  the browser's address bar, username=admin & password=(you got that at step 5)
 
 
-7.        ![image info](./images/airflow_login_page.png)
+7.        
+
+![image info](./images/airflow_login_page.png)
 
 
  
 	
-8.        ![image info](./images/airflow_main_page.png)
+8.        
+
+![image info](./images/airflow_main_page.png)
 	
 
-Note: The test environment is composed of 3 containers: Centos, Airflow and Mysql
+Notes: The test environment is composed of 3 containers: Centos, Airflow and Mysql
 * 	Centos container runs a very simple api server that provides a csv format of a random name,surname and age, that's changed every minute
 * 	Airflow container runs the dag (pipe_demo_dag.py)  that extracts the input by sending http GETs to the centos, transorms it (uppercase) then loads it to the Mysql container
 *   Mysql  container stores the db table whose entries are set by the Airflow container
